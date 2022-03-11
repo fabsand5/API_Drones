@@ -33,6 +33,7 @@ namespace rs_rendicion.Controllers
             this._logger = logger;
         }
 
+
         private ErrorTO errorSessionInvalida()
         {
             ErrorTO error = new ErrorTO();
