@@ -39,5 +39,38 @@ namespace rs_rendicion.DAO
             List<ValeCargaMonitorTO> listaVales = _dapper.GetAll<ValeCargaMonitorTO>(sp, dbParam, commandType: CommandType.StoredProcedure);
             return listaVales;
         }
+
+
+        public SolucionTO obtenerSolucion(String extra1)
+        {
+            String sp = ""; // "[dbo].[prc_ope_vale_carga_get]";
+            var dbParam = new DynamicParameters();
+            dbParam.Add("@i_extra1", extra1);
+
+            SolucionTO solucion = _dapper.Get<SolucionTO>(sp, dbParam, commandType: CommandType.StoredProcedure);
+            return solucion;
+        }
+
+        public List<SolucionTO> obtenerSoluciones()
+        {
+            String sp = ""; // "[dbo].[prc_ope_vale_carga_get]";
+            var dbParam = new DynamicParameters();
+            //dbParam.Add("@i_extra1", extra1);
+
+            List<SolucionTO> solucion = _dapper.GetAll<SolucionTO>(sp, dbParam, commandType: CommandType.StoredProcedure);
+            return solucion;
+        }
+
+
+        public SolucionTO aplicarCambiosSolucion(String extra1, int solucionId)
+        {
+            String sp = ""; // "[dbo].[prc_ope_vale_carga_get]";
+            var dbParam = new DynamicParameters();
+            dbParam.Add("@i_extra1", extra1);
+            dbParam.Add("@i_solucion_id", solucionId);
+
+            SolucionTO solucion = _dapper.Get<SolucionTO>(sp, dbParam, commandType: CommandType.StoredProcedure);
+            return solucion;
+        }
     }
 }
