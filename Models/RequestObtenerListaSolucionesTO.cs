@@ -7,5 +7,7 @@ namespace rs_rendicion.Models
 {
     public class RequestObtenerListaSolucionesTO
     {
+        public long baseId { get; set; }
+        public int estado { get; set; }
     }
 }

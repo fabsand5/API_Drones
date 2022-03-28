@@ -43,7 +43,7 @@ namespace rs_rendicion.DAO
 
         public SolucionTO obtenerSolucion(String extra1)
         {
-            String sp = ""; // "[dbo].[prc_ope_vale_carga_get]";
+            String sp = ""; //"[dbo].[prc_ope_vale_carga_get]";
             var dbParam = new DynamicParameters();
             dbParam.Add("@i_extra1", extra1);
 
@@ -51,11 +51,12 @@ namespace rs_rendicion.DAO
             return solucion;
         }
 
-        public List<SolucionTO> obtenerSoluciones()
+        public List<SolucionTO> obtenerListaSoluciones(long baseId, int estado)
         {
-            String sp = ""; // "[dbo].[prc_ope_vale_carga_get]";
+            String sp = "[dbo].[prc_org_solucion_get]";
             var dbParam = new DynamicParameters();
-            //dbParam.Add("@i_extra1", extra1);
+            dbParam.Add("@i_base_id", baseId);
+            dbParam.Add("@i_estado", estado);
 
             List<SolucionTO> solucion = _dapper.GetAll<SolucionTO>(sp, dbParam, commandType: CommandType.StoredProcedure);
             return solucion;

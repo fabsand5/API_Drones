@@ -108,7 +108,7 @@ namespace rs_rendicion.Controllers
             {
                 try
                 {
-                    response.listaSolucion = dao.obtenerSoluciones();
+                    response.listaSolucion = dao.obtenerListaSoluciones(data.baseId, data.estado);
                 }
                 catch (Exception ex)
                 {
