@@ -135,13 +135,14 @@ namespace rs_rendicion.Controllers
             {
                 try
                 {
-                    response.solucion = dao.aplicarCambiosSolucion(data.extra1, data.solucionId);
+                    response.solucion = dao.aplicarCambiosSolucion(data.baseId, data.reglaId, data.documentoId, data.usuario, 
+                                                                   data.observacion, data.tipoObjeccionDesc, data.solucionDesc);
                 }
                 catch (Exception ex)
                 {
                     String requestString = JsonConvert.SerializeObject(data, Formatting.Indented);
                     _logger.LogError("Error en aplicarCambiosSolucion " + requestString + ex.Message, ex);
-                    response.error.codigo = 15;
+                    response.error.codigo = 16;
                     response.error.descripcion = ex.Message;
                 }
             }

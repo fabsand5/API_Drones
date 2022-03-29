@@ -63,12 +63,19 @@ namespace rs_rendicion.DAO
         }
 
 
-        public SolucionTO aplicarCambiosSolucion(String extra1, int solucionId)
+        public SolucionTO aplicarCambiosSolucion(
+            long baseId, long reglaId, long documentoId, String usuario, String observacion, String tipoObjeccionDesc,
+            String solucionDesc)
         {
-            String sp = ""; // "[dbo].[prc_ope_vale_carga_get]";
+            String sp = "prc_ope_solucion_create";
             var dbParam = new DynamicParameters();
-            dbParam.Add("@i_extra1", extra1);
-            dbParam.Add("@i_solucion_id", solucionId);
+            dbParam.Add("@i_base_id", baseId);
+            dbParam.Add("@i_scdt_id", reglaId);
+            dbParam.Add("@i_dcto_id", documentoId);
+            dbParam.Add("@i_sadt_usr", usuario);
+            dbParam.Add("@i_sadt_obsv", observacion);
+            dbParam.Add("@i_sadt_tpob_dsc", tipoObjeccionDesc);
+            dbParam.Add("@i_sadt_sldt_dsc", solucionDesc);
 
             SolucionTO solucion = _dapper.Get<SolucionTO>(sp, dbParam, commandType: CommandType.StoredProcedure);
             return solucion;

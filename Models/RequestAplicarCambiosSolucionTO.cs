@@ -7,8 +7,12 @@ namespace rs_rendicion.Models
 {
     public class RequestAplicarCambiosSolucionTO
     {
-        public String extra1 { get; set; }
-
-        public int solucionId { get; set; }
+        public long baseId { get; set; }
+        public long reglaId { get; set; }
+        public long documentoId { get; set; }
+        public String usuario { get; set; }
+        public String observacion { get; set; }
+        public String tipoObjeccionDesc { get; set; }
+        public String solucionDesc { get; set; }
     }
 }
