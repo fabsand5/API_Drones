@@ -13,6 +13,6 @@ namespace rs_rendicion.Models
         }
         public ErrorTO error { get; set; }
 
-        public SolucionTO solucion { get; set; }
+        public long solucionId { get; set; }
     }
 }

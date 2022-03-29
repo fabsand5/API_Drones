@@ -135,7 +135,7 @@ namespace rs_rendicion.Controllers
             {
                 try
                 {
-                    response.solucion = dao.aplicarCambiosSolucion(data.baseId, data.reglaId, data.documentoId, data.usuario, 
+                    response.solucionId = dao.aplicarCambiosSolucion(data.baseId, data.reglaId, data.documentoId, data.usuario, 
                                                                    data.observacion, data.tipoObjeccionDesc, data.solucionDesc);
                 }
                 catch (Exception ex)

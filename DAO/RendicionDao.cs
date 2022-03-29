@@ -63,22 +63,39 @@ namespace rs_rendicion.DAO
         }
 
 
-        public SolucionTO aplicarCambiosSolucion(
+        public long aplicarCambiosSolucion(
             long baseId, long reglaId, long documentoId, String usuario, String observacion, String tipoObjeccionDesc,
             String solucionDesc)
         {
+            int result;
+
             String sp = "prc_ope_solucion_create";
             var dbParam = new DynamicParameters();
-            dbParam.Add("@i_base_id", baseId);
-            dbParam.Add("@i_scdt_id", reglaId);
-            dbParam.Add("@i_dcto_id", documentoId);
-            dbParam.Add("@i_sadt_usr", usuario);
-            dbParam.Add("@i_sadt_obsv", observacion);
-            dbParam.Add("@i_sadt_tpob_dsc", tipoObjeccionDesc);
-            dbParam.Add("@i_sadt_sldt_dsc", solucionDesc);
+            dbParam.Add("@i_base_id", baseId); // de obtenerUsuario
+            dbParam.Add("@i_scdt_id", reglaId); //solucion marcada en el select
+            dbParam.Add("@i_dcto_id", documentoId); // viene del obtenerDatosObjeccion
+            dbParam.Add("@i_sadt_usr", usuario); // de obtenerUsuario
+            dbParam.Add("@i_sadt_obsv", observacion); //texto que se escriba al cambiar la solucion
+            dbParam.Add("@i_sadt_tpob_dsc", tipoObjeccionDesc); //tipoObjeccionDescripcion sacado de obtenerDatosObjeccion
+            dbParam.Add("@i_sadt_sldt_dsc", solucionDesc); //descripcion de la solucion marcada
+            dbParam.Add("@o_sadt_id", null, DbType.Int32, direction: ParameterDirection.Output);
+            dbParam.Add("@o_error_cdg", null, DbType.Int32, direction: ParameterDirection.Output);
+            dbParam.Add("@o_error_dsc", null, DbType.String, direction: ParameterDirection.Output, size: 500);
 
-            SolucionTO solucion = _dapper.Get<SolucionTO>(sp, dbParam, commandType: CommandType.StoredProcedure);
-            return solucion;
+            _dapper.GetDbconnection().Execute(sp, dbParam, commandType: CommandType.StoredProcedure);
+
+            result = dbParam.Get<Int32>("o_error_cdg");
+
+            if (result == 0)
+            {
+                long id = dbParam.Get<Int32>("o_sadt_id");
+                return id;
+            }
+            else
+            {
+                String descripcion = dbParam.Get<String>("o_error_dsc");
+                throw new Exception(descripcion);
+            }
         }
     }
 }
