@@ -45,58 +45,33 @@ namespace rs_rendicion.Controllers
 
         //Agregar métodos aquí
 
-        [HttpPost(nameof(obtenerListaValeCarga))]
-        [EnableCors("MyPolicy")]
-        public ResponseObtenerListaValeCargaTO obtenerListaValeCarga([FromHeader] long idUsuario, [FromHeader] String token, [FromBody] RequestObtenerListaValeCargaTO data)
-        {
-            ResponseObtenerListaValeCargaTO response = new ResponseObtenerListaValeCargaTO();
-            if (sessionDao.validarUsuario(idUsuario, token))
-            {
-                try
-                {
-                    response.listaValesCarga = dao.obtenerListaValeCarga(data.valeCargaId, data.fechaInicio, data.fechaFin, data.codigoEstado);
-                }
-                catch (Exception ex)
-                {
-                    String requestString = JsonConvert.SerializeObject(data, Formatting.Indented);
-                    _logger.LogError("Error en obtenerListaValeCarga " + requestString + ex.Message, ex);
-                    response.error.codigo = 15;
-                    response.error.descripcion = ex.Message;
-                }
-            }
-            else
-            {
-                response.error = this.errorSessionInvalida();
-            }
-            return response;
-        }
 
 
-        [HttpPost(nameof(obtenerSolucion))]
-        [EnableCors("MyPolicy")]
-        public ResponseObtenerSolucionTO obtenerSolucion([FromHeader] long idUsuario, [FromHeader] String token, [FromBody] RequestObtenerSolucionTO data)
-        {
-            ResponseObtenerSolucionTO response = new ResponseObtenerSolucionTO();
-            if (sessionDao.validarUsuario(idUsuario, token))
-            {
-                try
-                {
-                    response.solucion = dao.obtenerSolucion(data.extra1);
-                }
-                catch (Exception ex)
-                {
-                    String requestString = JsonConvert.SerializeObject(data, Formatting.Indented);
-                    _logger.LogError("Error en obtenerSolucion " + requestString + ex.Message, ex);
-                    response.error.codigo = 15;
-                    response.error.descripcion = ex.Message;
-                }
-            }
-            else
-            {
-                response.error = this.errorSessionInvalida();
-            }
-            return response;
-        }
+        //[HttpPost(nameof(obtenerSolucion))]
+        //[EnableCors("MyPolicy")]
+        //public ResponseObtenerSolucionTO obtenerSolucion([FromHeader] long idUsuario, [FromHeader] String token, [FromBody] RequestObtenerSolucionTO data)
+        //{
+        //    ResponseObtenerSolucionTO response = new ResponseObtenerSolucionTO();
+        //    if (sessionDao.validarUsuario(idUsuario, token))
+        //    {
+        //        try
+        //        {
+        //            response.solucion = dao.obtenerSolucion(data.extra1);
+        //        }
+        //        catch (Exception ex)
+        //        {
+        //            String requestString = JsonConvert.SerializeObject(data, Formatting.Indented);
+        //            _logger.LogError("Error en obtenerSolucion " + requestString + ex.Message, ex);
+        //            response.error.codigo = 15;
+        //            response.error.descripcion = ex.Message;
+        //        }
+        //    }
+        //    else
+        //    {
+        //        response.error = this.errorSessionInvalida();
+        //    }
+        //    return response;
+        //}
 
 
         [HttpPost(nameof(obtenerListaSoluciones))]
@@ -108,7 +83,7 @@ namespace rs_rendicion.Controllers
             {
                 try
                 {
-                    response.listaSolucion = dao.obtenerListaSoluciones(data.baseId, data.estado);
+                    response.listaSolucion = dao.obtenerListaSoluciones( data.estado);
                 }
                 catch (Exception ex)
                 {
@@ -126,6 +101,65 @@ namespace rs_rendicion.Controllers
         }
 
 
+
+        [HttpPost(nameof(aplicarRegla))]
+        [EnableCors("MyPolicy")]
+        public ResponseAplicarCambiosSolucionTO aplicarRegla([FromHeader] long idUsuario, [FromHeader] String token, [FromBody] RequestAplicarCambiosSolucionTO data)
+        {
+            ResponseAplicarCambiosSolucionTO responseSolucionAplicada = new ResponseAplicarCambiosSolucionTO();
+            ResponseAplicarCambiosSolucionTO responseAplicarRegla = new ResponseAplicarCambiosSolucionTO();
+            int cantSalidasTerreno;
+
+            const int REGLA_A_REVISION = 1;
+            const int REGLA_RETENER_Y_DEVOLVER = 3;
+
+
+            if (sessionDao.validarUsuario(idUsuario, token))
+            {
+                try
+                {
+                    //PASO 1
+                    responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(null, data.codTipoObjeccion);
+
+
+                    if (responseSolucionAplicada != null)
+                    {
+                        //PASO 2
+                        cantSalidasTerreno = dao.obtenerCantSalidasTerreno(data.idDocumento, "RTA");
+
+                        if (cantSalidasTerreno >= responseSolucionAplicada.solucionConfigurada.cantMaxAplicar)
+                        {
+                            responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(REGLA_RETENER_Y_DEVOLVER, null);
+                        }
+                    }
+                    else
+                    {
+                        responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(REGLA_A_REVISION, null);
+                    }
+
+                    RequestAplicarCambiosSolucionTO aplicarCambiosSolucion = data;
+                    //PASO 3
+                    responseAplicarRegla.solucionId = dao.aplicarCambiosSolucion(aplicarCambiosSolucion);
+                }
+                catch (Exception ex)
+                {
+                    String requestString = JsonConvert.SerializeObject(data, Formatting.Indented);
+                    _logger.LogError("Error en aplicarCambiosSolucion " + requestString + ex.Message, ex);
+                    responseAplicarRegla.error.codigo = 16;
+                    responseAplicarRegla.error.descripcion = ex.Message;
+                }
+            }
+            else
+            {
+                responseAplicarRegla.error = this.errorSessionInvalida();
+            }
+            return responseAplicarRegla;
+        }
+
+
+
+
+
         [HttpPost(nameof(aplicarCambiosSolucion))]
         [EnableCors("MyPolicy")]
         public ResponseAplicarCambiosSolucionTO aplicarCambiosSolucion([FromHeader] long idUsuario, [FromHeader] String token, [FromBody] RequestAplicarCambiosSolucionTO data)
@@ -133,16 +167,18 @@ namespace rs_rendicion.Controllers
             ResponseAplicarCambiosSolucionTO response = new ResponseAplicarCambiosSolucionTO();
             if (sessionDao.validarUsuario(idUsuario, token))
             {
+                RequestAplicarCambiosSolucionTO aplicarCambiosSolucion = data;
                 try
                 {
-                    response.solucionId = dao.aplicarCambiosSolucion(data.baseId, data.reglaId, data.documentoId, data.usuario, 
-                                                                   data.observacion, data.tipoObjeccionDesc, data.solucionDesc);
+                    response.solucionConfigurada = dao.obtenerSolucionConfigurada(data.idDocumento, data.codTipoObjeccion);
+                    response.solucionId = dao.aplicarCambiosSolucion(aplicarCambiosSolucion);
+                    //response.solucionId = dao.aplicarCambiosSolucion(data.baseId, data.reglaId, data.documentoId, data.usuario, data.observacion, data.tipoObjeccionDesc, data.solucionDesc);
                 }
                 catch (Exception ex)
                 {
                     String requestString = JsonConvert.SerializeObject(data, Formatting.Indented);
-                    _logger.LogError("Error en aplicarCambiosSolucion " + requestString + ex.Message, ex);
-                    response.error.codigo = 16;
+                    _logger.LogError("Error en obtenerListaSoluciones " + requestString + ex.Message, ex);
+                    response.error.codigo = 15;
                     response.error.descripcion = ex.Message;
                 }
             }
@@ -152,5 +188,6 @@ namespace rs_rendicion.Controllers
             }
             return response;
         }
+
     }
 }

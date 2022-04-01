@@ -8,5 +8,6 @@ namespace rs_rendicion.Models
     public class RequestObtenerSolucionTO
     {
         public String extra1 { get; set; }
+        public long codObjeccion { get; set; }
     }
 }

@@ -14,5 +14,7 @@ namespace rs_rendicion.Models
         public ErrorTO error { get; set; }
 
         public long solucionId { get; set; }
+
+        public SolucionConfiguradaTO solucionConfigurada { get; set; }
     }
 }

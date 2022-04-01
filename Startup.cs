@@ -15,6 +15,7 @@ using System.IO;
 using log4net.Repository.Hierarchy;
 using rs_rendicion;
 using Microsoft.OpenApi.Models;
+using rs_rendicion.Services;
 
 namespace ws_rendicion
 {

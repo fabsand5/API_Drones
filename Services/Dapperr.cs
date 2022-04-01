@@ -7,8 +7,9 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using ws_rendicion.Services;
 
-namespace ws_rendicion.Services
+namespace rs_rendicion.Services
 {
     public class Dapperr : IDapper
     {
@@ -26,16 +27,13 @@ namespace ws_rendicion.Services
 
         public int Execute(string sp, DynamicParameters parms, CommandType commandType = CommandType.StoredProcedure)
         {
-            using IDbConnection db = new SqlConnection(_config.GetConnectionString(Connectionstring));
-            return db.Execute(sp, parms, commandType: commandType);
+            throw new NotImplementedException();
         }
 
         public T Get<T>(string sp, DynamicParameters parms, CommandType commandType = CommandType.Text)
         {
             using IDbConnection db = new SqlConnection(_config.GetConnectionString(Connectionstring));
             return db.Query<T>(sp, parms, commandType: commandType).FirstOrDefault();
-
-
         }
 
         public List<T> GetAll<T>(string sp, DynamicParameters parms, CommandType commandType = CommandType.StoredProcedure)

@@ -14,5 +14,10 @@ namespace rs_rendicion.Models
         public String observacion { get; set; }
         public String tipoObjeccionDesc { get; set; }
         public String solucionDesc { get; set; }
+
+        //NUEVO
+        public long idDocumento { get; set; }
+        public String codTipoObjeccion { get; set; }
+
     }
 }

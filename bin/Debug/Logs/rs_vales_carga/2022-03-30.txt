@@ -1,0 +1,62 @@
+2022-03-30 16:44:05,095 [12] ERROR App  
+ Error en obtenerListaSoluciones {
+  "baseId": 1,
+  "estado": 1
+}Invalid column name 'BASE_ID'.
+Invalid column name 'BASE_ID'. 
+ 
+System.Data.SqlClient.SqlException (0x80131904): Invalid column name 'BASE_ID'.
+Invalid column name 'BASE_ID'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in /_/Dapper/SqlMapper.cs:line 1066
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1094
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 734
+   at ws_rendicion.Services.Dapperr.GetAll[T](String sp, DynamicParameters parms, CommandType commandType) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Services\Dapperr.cs:line 44
+   at rs_rendicion.DAO.RendicionDao.obtenerListaSoluciones(Int64 baseId, Int32 estado) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\DAO\RendicionDao.cs:line 61
+   at rs_rendicion.Controllers.RendicionController.obtenerListaSoluciones(Int64 idUsuario, String token, RequestObtenerListaSolucionesTO data) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Controllers\RendicionController.cs:line 111
+ClientConnectionId:88423a2c-0380-47ec-93ab-55498d347c9a
+Error Number:207,State:1,Class:16
+2022-03-30 16:58:56,365 [22] ERROR App  
+ Error en obtenerListaSoluciones {
+  "baseId": 1,
+  "estado": 1
+}Procedure or function prc_org_solucion_get has too many arguments specified. 
+ 
+System.Data.SqlClient.SqlException (0x80131904): Procedure or function prc_org_solucion_get has too many arguments specified.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in /_/Dapper/SqlMapper.cs:line 1066
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1094
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 734
+   at ws_rendicion.Services.Dapperr.GetAll[T](String sp, DynamicParameters parms, CommandType commandType) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Services\Dapperr.cs:line 44
+   at rs_rendicion.DAO.RendicionDao.obtenerListaSoluciones(Int64 baseId, Int32 estado) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\DAO\RendicionDao.cs:line 61
+   at rs_rendicion.Controllers.RendicionController.obtenerListaSoluciones(Int64 idUsuario, String token, RequestObtenerListaSolucionesTO data) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Controllers\RendicionController.cs:line 111
+ClientConnectionId:c12f8bc2-399a-46c2-a690-57e7e796c783
+Error Number:8144,State:2,Class:16
