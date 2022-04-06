@@ -1,0 +1,28 @@
+2022-04-06 17:46:18,013 [37] ERROR App  
+ Error en aplicarCambiosSolucion {
+  "baseId": 0,
+  "documentoId": 14674,
+  "usuario": "admin@chileparcels.com",
+  "observacion": "jhjhgj",
+  "tipoObjeccionDesc": "FUERA DE MATRIZ",
+  "codTipoObjeccion": "FRAMA",
+  "reglaId": 0,
+  "solucionId": 3
+}Object reference not set to an instance of an object. 
+ 
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at rs_rendicion.Controllers.RendicionController.aplicarCambiosSolucion(Int64 idUsuario, String token, RequestAplicarCambiosSolucionTO data) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Controllers\RendicionController.cs:line 157
+2022-04-06 17:55:17,302 [6] ERROR App  
+ Error en aplicarCambiosSolucion {
+  "baseId": 0,
+  "documentoId": 14674,
+  "usuario": "admin@chileparcels.com",
+  "observacion": "PRUEBA",
+  "tipoObjeccionDesc": "FUERA DE MATRIZ",
+  "codTipoObjeccion": "FRAMA",
+  "reglaId": 0,
+  "solucionId": 2
+}Object reference not set to an instance of an object. 
+ 
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at rs_rendicion.Controllers.RendicionController.aplicarCambiosSolucion(Int64 idUsuario, String token, RequestAplicarCambiosSolucionTO data) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Controllers\RendicionController.cs:line 157

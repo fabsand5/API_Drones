@@ -53,19 +53,21 @@ namespace rs_rendicion.DAO
         }
 
 
-        public long aplicarCambiosSolucion(RequestAplicarCambiosSolucionTO resp)
+        public ResponseSolucionTO aplicarCambiosSolucion(SolucionConfiguradaTO solucionConfig, String observacion, long documentoId, String usuario, long baseId)
         {
-            int result;
+            int result; 
+
+            ResponseSolucionTO response = new ResponseSolucionTO();
 
             String sp = "prc_ope_solucion_create";
             var dbParam = new DynamicParameters();
-            dbParam.Add("@i_base_id", resp.baseId); // de obtenerUsuario
-            dbParam.Add("@i_scdt_id", resp.reglaId); //solucion marcada en el select
-            dbParam.Add("@i_dcto_id", resp.documentoId); // viene del obtenerDatosObjeccion
-            dbParam.Add("@i_sadt_usr",resp.usuario); // de obtenerUsuario
-            dbParam.Add("@i_sadt_obsv", resp.observacion); //texto que se escriba al cambiar la solucion
-            dbParam.Add("@i_sadt_tpob_dsc", resp.tipoObjeccionDesc); //tipoObjeccionDescripcion sacado de obtenerDatosObjeccion
-            dbParam.Add("@i_sadt_sldt_dsc", resp.solucionDesc); //descripcion de la solucion marcada
+            dbParam.Add("@i_base_id", baseId); // de obtenerUsuario
+            dbParam.Add("@i_scdt_id", solucionConfig.solucionConfiguradaId); //solucion marcada en el select
+            dbParam.Add("@i_dcto_id", documentoId); // de obtenerDatosObjeccion
+            dbParam.Add("@i_sadt_usr", usuario); // de obtenerUsuario
+            dbParam.Add("@i_sadt_obsv", observacion); //texto que se escriba al cambiar la solucion
+            dbParam.Add("@i_sadt_tpob_dsc", solucionConfig.tipoObjeccionDescripcion); //de obtenerSolucionConfigurada
+            dbParam.Add("@i_sadt_sldt_dsc", solucionConfig.solucionDesc); //descripcion de la solucion marcada
             dbParam.Add("@o_sadt_id", null, DbType.Int32, direction: ParameterDirection.Output);
             dbParam.Add("@o_error_cdg", null, DbType.Int32, direction: ParameterDirection.Output);
             dbParam.Add("@o_error_dsc", null, DbType.String, direction: ParameterDirection.Output, size: 500);
@@ -77,7 +79,11 @@ namespace rs_rendicion.DAO
             if (result == 0)
             {
                 long id = dbParam.Get<Int32>("o_sadt_id");
-                return id;
+                response.solucionId = id; //bitacora
+                response.solucionConfiguradaId = solucionConfig.solucionConfiguradaId;
+                response.solucionDescripcion = solucionConfig.solucionDesc;
+                response.error.codigo = 0;
+                return response;
             }
             else
             {
@@ -88,11 +94,11 @@ namespace rs_rendicion.DAO
 
 
 
-        public SolucionConfiguradaTO obtenerSolucionConfigurada(long? idDocumento, String codTipoObjeccion)
+        public SolucionConfiguradaTO obtenerSolucionConfigurada(long? regla, String codTipoObjeccion)
         {
             String sp = "[dbo].[prc_ope_solucion_configurada_get]";
             var dbParam = new DynamicParameters();
-            dbParam.Add("@i_scdt_id", idDocumento);
+            dbParam.Add("@i_scdt_id", regla);
             dbParam.Add("@i_tpob_cdg", codTipoObjeccion);
             
             SolucionConfiguradaTO solucion = _dapper.Get<SolucionConfiguradaTO>(sp, dbParam, commandType: CommandType.StoredProcedure);
@@ -102,14 +108,13 @@ namespace rs_rendicion.DAO
 
         public int obtenerCantSalidasTerreno(long idDocumento, String evento)
         {
-            String sp = "[dbo].[fnc_ope_cant_eventos_docto](@doct_id, @dtes_cdg)";
-            var dbParam = new DynamicParameters();
-            dbParam.Add("@doct_id", idDocumento);
-            dbParam.Add("@dtes_cdg", evento);
+            string sql = "select COUNT(t.DOCT_ID)" +
+                         " from [DataCore].[dbo].[SHP_DOCUMENTO_TRAZABILIDAD] t" +
+                         " where t.DOCT_ID = " + idDocumento + " and DTES_CDG = '" + evento + "'";
 
-            int solucion = _dapper.Get<int>(sp, dbParam, commandType: CommandType.Text);
-            return solucion;
+            int count = _dapper.Get<int>(sql, null, commandType: CommandType.Text); //CommandType.StoredProcedure
 
+            return count;
         }
     }
 }

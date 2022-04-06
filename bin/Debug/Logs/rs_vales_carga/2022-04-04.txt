@@ -1,0 +1,360 @@
+2022-04-04 12:33:43,754 [9] ERROR App  
+ Error en aplicarCambiosSolucion {
+  "baseId": 0,
+  "reglaId": 0,
+  "documentoId": 0,
+  "usuario": null,
+  "observacion": null,
+  "tipoObjeccionDesc": null,
+  "solucionDesc": null,
+  "idDocumento": 0,
+  "codTipoObjeccion": "FRAMA"
+}Incorrect syntax near '@doct_id'. 
+ 
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near '@doct_id'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in /_/Dapper/SqlMapper.cs:line 1066
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1094
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 734
+   at rs_rendicion.Services.Dapperr.Get[T](String sp, DynamicParameters parms, CommandType commandType) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Services\Dapperr.cs:line 36
+   at rs_rendicion.DAO.RendicionDao.obtenerCantSalidasTerreno(Int64 idDocumento, String evento) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\DAO\RendicionDao.cs:line 110
+   at rs_rendicion.Controllers.RendicionController.aplicarRegla(Int64 idUsuario, String token, RequestAplicarCambiosSolucionTO data) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Controllers\RendicionController.cs:line 127
+ClientConnectionId:a857e585-652d-42e2-a4b2-1d92be9dfe3c
+Error Number:102,State:1,Class:15
+2022-04-04 12:34:03,019 [27] ERROR App  
+ Error en aplicarCambiosSolucion {
+  "baseId": 0,
+  "reglaId": 0,
+  "documentoId": 0,
+  "usuario": null,
+  "observacion": null,
+  "tipoObjeccionDesc": null,
+  "solucionDesc": null,
+  "idDocumento": 0,
+  "codTipoObjeccion": "FRAMA"
+}Incorrect syntax near '@doct_id'. 
+ 
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near '@doct_id'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in /_/Dapper/SqlMapper.cs:line 1066
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1094
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 734
+   at rs_rendicion.Services.Dapperr.Get[T](String sp, DynamicParameters parms, CommandType commandType) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Services\Dapperr.cs:line 36
+   at rs_rendicion.DAO.RendicionDao.obtenerCantSalidasTerreno(Int64 idDocumento, String evento) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\DAO\RendicionDao.cs:line 110
+   at rs_rendicion.Controllers.RendicionController.aplicarRegla(Int64 idUsuario, String token, RequestAplicarCambiosSolucionTO data) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Controllers\RendicionController.cs:line 127
+ClientConnectionId:a857e585-652d-42e2-a4b2-1d92be9dfe3c
+Error Number:102,State:1,Class:15
+2022-04-04 13:19:42,756 [35] ERROR App  
+ Error en aplicarCambiosSolucion {
+  "baseId": 0,
+  "reglaId": 0,
+  "documentoId": 0,
+  "usuario": null,
+  "observacion": null,
+  "tipoObjeccionDesc": null,
+  "solucionDesc": null,
+  "idDocumento": 0,
+  "codTipoObjeccion": "FRAMA"
+}Incorrect syntax near '@doct_id'. 
+ 
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near '@doct_id'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in /_/Dapper/SqlMapper.cs:line 1066
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1094
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 734
+   at rs_rendicion.Services.Dapperr.Get[T](String sp, DynamicParameters parms, CommandType commandType) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Services\Dapperr.cs:line 36
+   at rs_rendicion.DAO.RendicionDao.obtenerCantSalidasTerreno(Int64 idDocumento, String evento) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\DAO\RendicionDao.cs:line 110
+   at rs_rendicion.Controllers.RendicionController.aplicarRegla(Int64 idUsuario, String token, RequestAplicarCambiosSolucionTO data) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Controllers\RendicionController.cs:line 127
+ClientConnectionId:ca29e4bc-fab3-4909-8abb-ca20c91e6b9a
+Error Number:102,State:1,Class:15
+2022-04-04 13:20:58,174 [33] ERROR App  
+ Error en aplicarCambiosSolucion {
+  "baseId": 0,
+  "reglaId": 0,
+  "documentoId": 0,
+  "usuario": null,
+  "observacion": null,
+  "tipoObjeccionDesc": null,
+  "solucionDesc": null,
+  "idDocumento": 0,
+  "codTipoObjeccion": "FRAMA"
+}Incorrect syntax near '@doct_id'. 
+ 
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near '@doct_id'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in /_/Dapper/SqlMapper.cs:line 1066
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1094
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 734
+   at rs_rendicion.Services.Dapperr.Get[T](String sp, DynamicParameters parms, CommandType commandType) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Services\Dapperr.cs:line 36
+   at rs_rendicion.DAO.RendicionDao.obtenerCantSalidasTerreno(Int64 idDocumento, String evento) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\DAO\RendicionDao.cs:line 110
+   at rs_rendicion.Controllers.RendicionController.aplicarRegla(Int64 idUsuario, String token, RequestAplicarCambiosSolucionTO data) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Controllers\RendicionController.cs:line 127
+ClientConnectionId:ca29e4bc-fab3-4909-8abb-ca20c91e6b9a
+Error Number:102,State:1,Class:15
+2022-04-04 13:23:29,114 [4] ERROR App  
+ Error en aplicarCambiosSolucion {
+  "baseId": 0,
+  "reglaId": 0,
+  "documentoId": 0,
+  "usuario": null,
+  "observacion": null,
+  "tipoObjeccionDesc": null,
+  "solucionDesc": null,
+  "idDocumento": 0,
+  "codTipoObjeccion": "FRAMA"
+}Incorrect syntax near '@doct_id'. 
+ 
+System.Data.SqlClient.SqlException (0x80131904): Incorrect syntax near '@doct_id'.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in /_/Dapper/SqlMapper.cs:line 1066
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1094
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 734
+   at rs_rendicion.Services.Dapperr.Get[T](String sp, DynamicParameters parms, CommandType commandType) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Services\Dapperr.cs:line 36
+   at rs_rendicion.DAO.RendicionDao.obtenerCantSalidasTerreno(Int64 idDocumento, String evento) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\DAO\RendicionDao.cs:line 110
+   at rs_rendicion.Controllers.RendicionController.aplicarRegla(Int64 idUsuario, String token, RequestAplicarCambiosSolucionTO data) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Controllers\RendicionController.cs:line 127
+ClientConnectionId:1c524a44-b3ca-46cd-8747-4b61b0cc3a40
+Error Number:102,State:1,Class:15
+2022-04-04 13:56:23,384 [4] ERROR App  
+ Error en aplicarCambiosSolucion {
+  "baseId": 0,
+  "reglaId": 0,
+  "documentoId": 0,
+  "usuario": null,
+  "observacion": null,
+  "tipoObjeccionDesc": null,
+  "solucionDesc": null,
+  "idDocumento": 0,
+  "codTipoObjeccion": "FRAMA"
+}A RETURN statement with a return value cannot be used in this context. 
+ 
+System.Data.SqlClient.SqlException (0x80131904): A RETURN statement with a return value cannot be used in this context.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in /_/Dapper/SqlMapper.cs:line 1066
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1094
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 734
+   at rs_rendicion.Services.Dapperr.Get[T](String sp, DynamicParameters parms, CommandType commandType) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Services\Dapperr.cs:line 36
+   at rs_rendicion.DAO.RendicionDao.obtenerCantSalidasTerreno(Int64 idDocumento, String evento) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\DAO\RendicionDao.cs:line 131
+   at rs_rendicion.Controllers.RendicionController.aplicarRegla(Int64 idUsuario, String token, RequestAplicarCambiosSolucionTO data) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Controllers\RendicionController.cs:line 127
+ClientConnectionId:07c8009e-ee8b-4b69-ae15-d87b7cdb491d
+Error Number:178,State:1,Class:15
+2022-04-04 13:57:09,049 [13] ERROR App  
+ Error en aplicarCambiosSolucion {
+  "baseId": 0,
+  "reglaId": 0,
+  "documentoId": 0,
+  "usuario": null,
+  "observacion": null,
+  "tipoObjeccionDesc": null,
+  "solucionDesc": null,
+  "idDocumento": 0,
+  "codTipoObjeccion": "FRAMA"
+}A RETURN statement with a return value cannot be used in this context. 
+ 
+System.Data.SqlClient.SqlException (0x80131904): A RETURN statement with a return value cannot be used in this context.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in /_/Dapper/SqlMapper.cs:line 1066
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1094
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 734
+   at rs_rendicion.Services.Dapperr.Get[T](String sp, DynamicParameters parms, CommandType commandType) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Services\Dapperr.cs:line 36
+   at rs_rendicion.DAO.RendicionDao.obtenerCantSalidasTerreno(Int64 idDocumento, String evento) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\DAO\RendicionDao.cs:line 131
+   at rs_rendicion.Controllers.RendicionController.aplicarRegla(Int64 idUsuario, String token, RequestAplicarCambiosSolucionTO data) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Controllers\RendicionController.cs:line 127
+ClientConnectionId:07c8009e-ee8b-4b69-ae15-d87b7cdb491d
+Error Number:178,State:1,Class:15
+2022-04-04 13:57:39,753 [13] ERROR App  
+ Error en aplicarCambiosSolucion {
+  "baseId": 0,
+  "reglaId": 0,
+  "documentoId": 0,
+  "usuario": null,
+  "observacion": null,
+  "tipoObjeccionDesc": null,
+  "solucionDesc": null,
+  "idDocumento": 0,
+  "codTipoObjeccion": "FRAMA"
+}A RETURN statement with a return value cannot be used in this context. 
+ 
+System.Data.SqlClient.SqlException (0x80131904): A RETURN statement with a return value cannot be used in this context.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlDataReader.TryConsumeMetaData()
+   at System.Data.SqlClient.SqlDataReader.get_MetaData()
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, String method)
+   at System.Data.SqlClient.SqlCommand.ExecuteReader(CommandBehavior behavior)
+   at System.Data.SqlClient.SqlCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   at System.Data.Common.DbCommand.System.Data.IDbCommand.ExecuteReader(CommandBehavior behavior)
+   at Dapper.SqlMapper.ExecuteReaderWithFlagsFallback(IDbCommand cmd, Boolean wasClosed, CommandBehavior behavior) in /_/Dapper/SqlMapper.cs:line 1066
+   at Dapper.SqlMapper.QueryImpl[T](IDbConnection cnn, CommandDefinition command, Type effectiveType)+MoveNext() in /_/Dapper/SqlMapper.cs:line 1094
+   at System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   at System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   at Dapper.SqlMapper.Query[T](IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Boolean buffered, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 734
+   at rs_rendicion.Services.Dapperr.Get[T](String sp, DynamicParameters parms, CommandType commandType) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Services\Dapperr.cs:line 36
+   at rs_rendicion.DAO.RendicionDao.obtenerCantSalidasTerreno(Int64 idDocumento, String evento) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\DAO\RendicionDao.cs:line 131
+   at rs_rendicion.Controllers.RendicionController.aplicarRegla(Int64 idUsuario, String token, RequestAplicarCambiosSolucionTO data) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Controllers\RendicionController.cs:line 127
+ClientConnectionId:07c8009e-ee8b-4b69-ae15-d87b7cdb491d
+Error Number:178,State:1,Class:15
+2022-04-04 14:07:42,074 [4] ERROR App  
+ Error en aplicarCambiosSolucion {
+  "baseId": 0,
+  "reglaId": 0,
+  "documentoId": 0,
+  "usuario": null,
+  "observacion": null,
+  "tipoObjeccionDesc": null,
+  "solucionDesc": null,
+  "idDocumento": 14674,
+  "codTipoObjeccion": "FRAMA"
+}The INSERT statement conflicted with the FOREIGN KEY constraint "FK_SADT_REFERENCE_BASE". The conflict occurred in database "DataCore", table "dbo.ORG_BASE_OPERACIONAL", column 'BASE_ID'.
+The statement has been terminated. 
+ 
+System.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_SADT_REFERENCE_BASE". The conflict occurred in database "DataCore", table "dbo.ORG_BASE_OPERACIONAL", column 'BASE_ID'.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader) in /_/Dapper/SqlMapper.cs:line 2848
+   at Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command) in /_/Dapper/SqlMapper.cs:line 581
+   at Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 452
+   at rs_rendicion.DAO.RendicionDao.aplicarCambiosSolucion(RequestAplicarCambiosSolucionTO resp) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\DAO\RendicionDao.cs:line 73
+   at rs_rendicion.Controllers.RendicionController.aplicarRegla(Int64 idUsuario, String token, RequestAplicarCambiosSolucionTO data) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Controllers\RendicionController.cs:line 141
+ClientConnectionId:62d07d51-c818-4749-97c4-ae65ca7afdb5
+Error Number:547,State:0,Class:16
+2022-04-04 14:10:05,802 [10] ERROR App  
+ Error en aplicarCambiosSolucion {
+  "baseId": 0,
+  "reglaId": 0,
+  "documentoId": 0,
+  "usuario": null,
+  "observacion": null,
+  "tipoObjeccionDesc": null,
+  "solucionDesc": null,
+  "idDocumento": 14674,
+  "codTipoObjeccion": "FRAMA"
+}The INSERT statement conflicted with the FOREIGN KEY constraint "FK_SADT_REFERENCE_BASE". The conflict occurred in database "DataCore", table "dbo.ORG_BASE_OPERACIONAL", column 'BASE_ID'.
+The statement has been terminated. 
+ 
+System.Data.SqlClient.SqlException (0x80131904): The INSERT statement conflicted with the FOREIGN KEY constraint "FK_SADT_REFERENCE_BASE". The conflict occurred in database "DataCore", table "dbo.ORG_BASE_OPERACIONAL", column 'BASE_ID'.
+The statement has been terminated.
+   at System.Data.SqlClient.SqlConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.SqlInternalConnection.OnError(SqlException exception, Boolean breakConnection, Action`1 wrapCloseInAction)
+   at System.Data.SqlClient.TdsParser.ThrowExceptionAndWarning(TdsParserStateObject stateObj, Boolean callerHasConnectionLock, Boolean asyncClose)
+   at System.Data.SqlClient.TdsParser.TryRun(RunBehavior runBehavior, SqlCommand cmdHandler, SqlDataReader dataStream, BulkCopySimpleResultSet bulkCopyHandler, TdsParserStateObject stateObj, Boolean& dataReady)
+   at System.Data.SqlClient.SqlCommand.FinishExecuteReader(SqlDataReader ds, RunBehavior runBehavior, String resetOptionsString)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReaderTds(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, Boolean async, Int32 timeout, Task& task, Boolean asyncWrite, SqlDataReader ds)
+   at System.Data.SqlClient.SqlCommand.RunExecuteReader(CommandBehavior cmdBehavior, RunBehavior runBehavior, Boolean returnStream, TaskCompletionSource`1 completion, Int32 timeout, Task& task, Boolean asyncWrite, String method)
+   at System.Data.SqlClient.SqlCommand.InternalExecuteNonQuery(TaskCompletionSource`1 completion, Boolean sendToPipe, Int32 timeout, Boolean asyncWrite, String methodName)
+   at System.Data.SqlClient.SqlCommand.ExecuteNonQuery()
+   at Dapper.SqlMapper.ExecuteCommand(IDbConnection cnn, CommandDefinition& command, Action`2 paramReader) in /_/Dapper/SqlMapper.cs:line 2848
+   at Dapper.SqlMapper.ExecuteImpl(IDbConnection cnn, CommandDefinition& command) in /_/Dapper/SqlMapper.cs:line 581
+   at Dapper.SqlMapper.Execute(IDbConnection cnn, String sql, Object param, IDbTransaction transaction, Nullable`1 commandTimeout, Nullable`1 commandType) in /_/Dapper/SqlMapper.cs:line 452
+   at rs_rendicion.DAO.RendicionDao.aplicarCambiosSolucion(RequestAplicarCambiosSolucionTO resp) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\DAO\RendicionDao.cs:line 73
+   at rs_rendicion.Controllers.RendicionController.aplicarRegla(Int64 idUsuario, String token, RequestAplicarCambiosSolucionTO data) in C:\WorkSpace Chileparcels\REST-Service\rs_rendicion\Controllers\RendicionController.cs:line 141
+ClientConnectionId:9a186fd2-e2e5-44d5-a8d6-9f56cca99d31
+Error Number:547,State:0,Class:16
