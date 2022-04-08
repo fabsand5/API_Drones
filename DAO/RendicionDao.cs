@@ -66,7 +66,7 @@ namespace rs_rendicion.DAO
             dbParam.Add("@i_dcto_id", documentoId); // de obtenerDatosObjeccion
             dbParam.Add("@i_sadt_usr", usuario); // de obtenerUsuario
             dbParam.Add("@i_sadt_obsv", observacion); //texto que se escriba al cambiar la solucion
-            dbParam.Add("@i_sadt_tpob_dsc", solucionConfig.tipoObjeccionDescripcion); //de obtenerSolucionConfigurada
+            dbParam.Add("@i_sadt_tpob_dsc", solucionConfig.solucionConfiguradaDesc); //de obtenerSolucionConfigurada
             dbParam.Add("@i_sadt_sldt_dsc", solucionConfig.solucionDesc); //descripcion de la solucion marcada
             dbParam.Add("@o_sadt_id", null, DbType.Int32, direction: ParameterDirection.Output);
             dbParam.Add("@o_error_cdg", null, DbType.Int32, direction: ParameterDirection.Output);
@@ -93,7 +93,6 @@ namespace rs_rendicion.DAO
         }
 
 
-
         public SolucionConfiguradaTO obtenerSolucionConfigurada(long? regla, String codTipoObjeccion)
         {
             String sp = "[dbo].[prc_ope_solucion_configurada_get]";
@@ -115,6 +114,17 @@ namespace rs_rendicion.DAO
             int count = _dapper.Get<int>(sql, null, commandType: CommandType.Text); //CommandType.StoredProcedure
 
             return count;
+        }
+
+
+        public List<HistorialSolucionesTO> obtenerHistorialSoluciones(long documentoId)
+        {
+            String sp = "[dbo].[prc_ope_solucion_aplicada_get]";
+            var dbParam = new DynamicParameters();
+            dbParam.Add("@i_docto_id", documentoId);
+
+            List<HistorialSolucionesTO> historialSoluciones = _dapper.GetAll<HistorialSolucionesTO>(sp, dbParam, commandType: CommandType.StoredProcedure);
+            return historialSoluciones;
         }
     }
 }

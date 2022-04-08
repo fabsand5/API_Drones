@@ -173,5 +173,32 @@ namespace rs_rendicion.Controllers
             return responseAplicarRegla;
         }
 
+
+        [HttpPost(nameof(obtenerHistorialSoluciones))]
+        [EnableCors("MyPolicy")]
+        public ResponseObtenerHistorialSolucionesTO obtenerHistorialSoluciones([FromHeader] long idUsuario, [FromHeader] String token, [FromBody] RequestObtenerHistorialSolucionesTO data)
+        {
+            ResponseObtenerHistorialSolucionesTO response = new ResponseObtenerHistorialSolucionesTO();
+            if (sessionDao.validarUsuario(idUsuario, token))
+            {
+                try
+                {
+                    response.listaHistorialSoluciones = dao.obtenerHistorialSoluciones(data.documentoId);
+                }
+                catch (Exception ex)
+                {
+                    String requestString = JsonConvert.SerializeObject(data, Formatting.Indented);
+                    _logger.LogError("Error en obtenerHistorialSoluciones " + requestString + ex.Message, ex);
+                    response.error.codigo = 15;
+                    response.error.descripcion = ex.Message;
+                }
+            }
+            else
+            {
+                response.error = this.errorSessionInvalida();
+            }
+            return response;
+        }
+
     }
 }
