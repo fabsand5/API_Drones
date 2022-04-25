@@ -90,29 +90,37 @@ namespace rs_rendicion.Controllers
             {
                 try
                 {
-                    //PASO 1
-                    responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(null, data.codTipoObjeccion);
-
-                    observacion = "REGLA APLICADA POR SISTEMA";
-
-                    if (responseSolucionAplicada != null)
-                    {
-                        //PASO 2
-                        cantSalidasTerreno = dao.obtenerCantSalidasTerreno(data.documentoId, "RTA");
-
-                        if (cantSalidasTerreno >= responseSolucionAplicada.solucionConfigurada.cantMaxAplicar)
-                        //sldt solucion documento **** responseSolucionAplicada.solucionConfigurada.solucionId
-                        //scdt solucion configurada documento
-                        //sadt solucion aplicada al documento
-                        {
-                            observacion = "REGLA APLICADA POR DEFECTO POR CUMPLIR CANTIDAD MAXIMA (" + responseSolucionAplicada.solucionConfigurada.cantMaxAplicar  + ") DE SALIDAS A RUTA";
-                            responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(REGLA_RETENER_Y_DEVOLVER, null);
-                        }
-                    }
-                    else
+                    if (data.codTipoObjeccion == null)
                     {
                         observacion = "REGLA APLICADA POR DEFECTO YA QUE NO SE ENCONTRO REGLA CONFIGURADA";
                         responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(REGLA_A_REVISION, null);
+                    }
+                    else
+                    {
+                        //PASO 1
+                        responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(null, data.codTipoObjeccion);
+
+                        observacion = "REGLA APLICADA POR SISTEMA";
+
+                        if (responseSolucionAplicada != null)
+                        {
+                            //PASO 2
+                            cantSalidasTerreno = dao.obtenerCantSalidasTerreno(data.documentoId, "RTA");
+
+                            if (cantSalidasTerreno >= responseSolucionAplicada.solucionConfigurada.cantMaxAplicar)
+                            //sldt solucion documento **** responseSolucionAplicada.solucionConfigurada.solucionId
+                            //scdt solucion configurada documento
+                            //sadt solucion aplicada al documento
+                            {
+                                observacion = "REGLA APLICADA POR DEFECTO POR CUMPLIR CANTIDAD MAXIMA (" + responseSolucionAplicada.solucionConfigurada.cantMaxAplicar + ") DE SALIDAS A RUTA";
+                                responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(REGLA_RETENER_Y_DEVOLVER, null);
+                            }
+                        }
+                        else
+                        {
+                            observacion = "REGLA APLICADA POR DEFECTO YA QUE NO SE ENCONTRO REGLA CONFIGURADA";
+                            responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(REGLA_A_REVISION, null);
+                        }
                     }
 
                 }
@@ -155,6 +163,7 @@ namespace rs_rendicion.Controllers
                     responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(data.solucionId, null);
 
                     //responseSolucionAplicada.solucionConfigurada.solucionConfiguradaId = data.solucionId;
+                    responseSolucionAplicada.solucionConfigurada.tipoObjeccionDescripcion = data.tipoObjeccionDesc;
 
                     responseAplicarRegla = dao.aplicarCambiosSolucion(responseSolucionAplicada.solucionConfigurada, data.observacion, data.documentoId, data.usuario, data.baseId);
                 }

@@ -66,7 +66,7 @@ namespace rs_rendicion.DAO
             dbParam.Add("@i_dcto_id", documentoId); // de obtenerDatosObjeccion
             dbParam.Add("@i_sadt_usr", usuario); // de obtenerUsuario
             dbParam.Add("@i_sadt_obsv", observacion); //texto que se escriba al cambiar la solucion
-            dbParam.Add("@i_sadt_tpob_dsc", solucionConfig.solucionConfiguradaDesc); //de obtenerSolucionConfigurada
+            dbParam.Add("@i_sadt_tpob_dsc", solucionConfig.tipoObjeccionDescripcion); //de obtenerSolucionConfigurada
             dbParam.Add("@i_sadt_sldt_dsc", solucionConfig.solucionDesc); //descripcion de la solucion marcada
             dbParam.Add("@o_sadt_id", null, DbType.Int32, direction: ParameterDirection.Output);
             dbParam.Add("@o_error_cdg", null, DbType.Int32, direction: ParameterDirection.Output);
