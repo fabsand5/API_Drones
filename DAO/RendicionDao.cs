@@ -93,13 +93,14 @@ namespace rs_rendicion.DAO
         }
 
 
-        public SolucionConfiguradaTO obtenerSolucionConfigurada(long? regla, String codTipoObjeccion)
+        public SolucionConfiguradaTO obtenerSolucionConfigurada(long? regla, String estadoDocumento, String codTipoObjeccion)
         {
             String sp = "[dbo].[prc_ope_solucion_configurada_get]";
             var dbParam = new DynamicParameters();
             dbParam.Add("@i_scdt_id", regla);
-            dbParam.Add("@i_tpob_cdg", codTipoObjeccion);
-            
+            dbParam.Add("@i_dtes_cdg", estadoDocumento);
+            dbParam.Add("@i_tpob_cdg", estadoDocumento == "OBJ" ? codTipoObjeccion : null);
+
             SolucionConfiguradaTO solucion = _dapper.Get<SolucionConfiguradaTO>(sp, dbParam, commandType: CommandType.StoredProcedure);
             return solucion;
         }

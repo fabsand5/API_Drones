@@ -17,6 +17,8 @@ namespace rs_rendicion.Models
 
         public long solucionId { get; set; }
 
+        public String estadoCodigo { get; set; }
+
         //public long idDocumento { get; set; }
 
     }

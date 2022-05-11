@@ -90,40 +90,44 @@ namespace rs_rendicion.Controllers
             {
                 try
                 {
-                    if (data.codTipoObjeccion == null)
+                    //if (data.codTipoObjeccion == null)
+                    //{
+                    //responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(null, data.estadoCodigo, data.codTipoObjeccion);
+
+                    //if (responseSolucionAplicada.solucionConfigurada == null)
+                    //{
+                    //    observacion = "REGLA APLICADA POR DEFECTO YA QUE NO SE ENCONTRO REGLA CONFIGURADA";
+                    //    responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(REGLA_A_REVISION, null, null);
+                    //}
+                    //}
+                    //else
+                    //{
+
+                    //PASO 1
+                    responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(null, data.estadoCodigo, data.codTipoObjeccion);
+
+                    if (responseSolucionAplicada.solucionConfigurada == null)
                     {
                         observacion = "REGLA APLICADA POR DEFECTO YA QUE NO SE ENCONTRO REGLA CONFIGURADA";
-                        responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(REGLA_A_REVISION, null);
+                        responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(REGLA_A_REVISION, null, null);
                     }
                     else
                     {
-                        //PASO 1
-                        responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(null, data.codTipoObjeccion);
+                    //PASO 2
+                        observacion = responseSolucionAplicada.solucionConfigurada.solucionConfiguradaDesc;
+                        cantSalidasTerreno = dao.obtenerCantSalidasTerreno(data.documentoId, "RTA");
 
-                        observacion = "REGLA APLICADA POR SISTEMA";
-
-                        if (responseSolucionAplicada != null)
+                        if (cantSalidasTerreno >= responseSolucionAplicada.solucionConfigurada.cantMaxAplicar)
+                        //sldt solucion documento **** responseSolucionAplicada.solucionConfigurada.solucionId
+                        //scdt solucion configurada documento
+                        //sadt solucion aplicada al documento
                         {
-                            //PASO 2
-                            cantSalidasTerreno = dao.obtenerCantSalidasTerreno(data.documentoId, "RTA");
-
-                            if (cantSalidasTerreno >= responseSolucionAplicada.solucionConfigurada.cantMaxAplicar)
-                            //sldt solucion documento **** responseSolucionAplicada.solucionConfigurada.solucionId
-                            //scdt solucion configurada documento
-                            //sadt solucion aplicada al documento
-                            {
-                                observacion = "REGLA APLICADA POR DEFECTO POR CUMPLIR CANTIDAD MAXIMA (" + responseSolucionAplicada.solucionConfigurada.cantMaxAplicar + ") DE SALIDAS A RUTA";
-                                responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(REGLA_RETENER_Y_DEVOLVER, null);
-                            }
-                        }
-                        else
-                        {
-                            observacion = "REGLA APLICADA POR DEFECTO YA QUE NO SE ENCONTRO REGLA CONFIGURADA";
-                            responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(REGLA_A_REVISION, null);
+                            observacion = "REGLA APLICADA POR DEFECTO POR CUMPLIR CANTIDAD MAXIMA (" + responseSolucionAplicada.solucionConfigurada.cantMaxAplicar + ") DE SALIDAS A RUTA";
+                            responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(REGLA_RETENER_Y_DEVOLVER, data.estadoCodigo, null);
                         }
                     }
-
                 }
+
                 catch (Exception ex)
                 {
                     String requestString = JsonConvert.SerializeObject(data, Formatting.Indented);
@@ -132,7 +136,7 @@ namespace rs_rendicion.Controllers
                     responseAplicarRegla.error.descripcion = ex.Message;
 
                     observacion = "REGLA APLICADA POR DEFECTO YA QUE OCURRIO UN ERROR: " + ex.Message;
-                    responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(REGLA_A_REVISION, null);
+                    responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(REGLA_A_REVISION, data.estadoCodigo, null);
 
                 }
 
@@ -160,7 +164,7 @@ namespace rs_rendicion.Controllers
             {
                 try
                 {
-                    responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(data.solucionId, null);
+                    responseSolucionAplicada.solucionConfigurada = dao.obtenerSolucionConfigurada(data.solucionId, data.estadoCodigo, null);
 
                     //responseSolucionAplicada.solucionConfigurada.solucionConfiguradaId = data.solucionId;
                     responseSolucionAplicada.solucionConfigurada.tipoObjeccionDescripcion = data.tipoObjeccionDesc;
