@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API_Drones.Models;
+using System.Data;
+using Dapper;
 
 namespace API_Drones.DAO
 {
     public class DronesDAO
     {
-        public List<ValeCargaMonitorTO> obtenerListaValeCarga(long valeCargaId, string fechaInicio, string fechaFin, string codigoEstado)
+        public long registrarDron(DronTO dron)
         {
 
             String sp = "[dbo].[prc_ope_vale_carga_get]";

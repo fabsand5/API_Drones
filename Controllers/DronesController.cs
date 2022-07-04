@@ -19,18 +19,14 @@ namespace API_Drones.Controllers
     {
         private DronesDAO dao;
 
-        [HttpPost(nameof(editarCourier))]
+        [HttpPost(nameof(registrarDron))]
         [EnableCors("MyPolicy")]
-        public ResponseEditarDronTO editarCourier([FromHeader] long idUsuario, [FromHeader] String token, [FromBody] RequestEditarDronTO data)
+        public ResponseRegistrarDronTO registrarDron([FromBody] RequestRegistrarDronTO data)
         {
-            ResponseEditarDronTO response = new ResponseEditarDronTO();
+            ResponseRegistrarDronTO response = new ResponseRegistrarDronTO();
             try
             {
-                if (data.idCourier != 0)
-                    response.courierId = dao.editarCourier(data, "editar");
-                else
-                    response.courierId = dao.editarCourier(data, "crear");
-
+                    response.numeroSerie = dao.editarCourier(data, "editar");
             }
             catch (CourierExceptionTO ex)
             {

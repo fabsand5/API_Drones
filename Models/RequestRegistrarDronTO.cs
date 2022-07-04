@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace API_Drones.Models
 {
-    public class ResponseEditarDronTO
+    public class RequestRegistrarDronTO
     {
-
+        public DronTO dron { get; set; }
     }
 }
