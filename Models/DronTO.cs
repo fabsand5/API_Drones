@@ -7,7 +7,7 @@ namespace API_Drones.Models
 {
     public class DronTO
     {
-        public long numeroSerie { get; set; }
+        public String numeroSerie { get; set; }
         public String modelo { get; set; }
         public int pesoLimite { get; set; }
         public int capacidadBateria { get; set; }
