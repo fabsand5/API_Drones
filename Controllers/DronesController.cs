@@ -1,5 +1,4 @@
-﻿using lib_session.DAO;
-using Microsoft.AspNetCore.Cors;
+﻿using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
@@ -21,7 +20,6 @@ namespace rs_drones.Controllers
         private readonly IDapper _dapper;
 
         private dronesDao dao;
-        private SessionDAO sessionDao;
 
         private readonly ILoggerManager _logger;
 
@@ -29,7 +27,6 @@ namespace rs_drones.Controllers
         {
             _dapper = dapper;
             dao = new dronesDao(dapper);
-            sessionDao = new SessionDAO(dapper);
             this._logger = logger;
         }
 
