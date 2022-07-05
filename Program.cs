@@ -6,9 +6,9 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ws_rendicion;
+using ws_drones;
 
-namespace rs_rendicion
+namespace rs_drones
 {
     public class Program
     {

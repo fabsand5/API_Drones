@@ -7,9 +7,9 @@ using System.Data.Common;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
-using ws_rendicion.Services;
+using ws_drones.Services;
 
-namespace rs_rendicion.Services
+namespace rs_drones.Services
 {
     public class Dapperr : IDapper
     {

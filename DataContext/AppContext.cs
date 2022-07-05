@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 
-namespace ws_rendicion.DataContext
+namespace ws_drones.DataContext
 {
     public class AppContext : DbContext
     {

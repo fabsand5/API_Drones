@@ -7118,11 +7118,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\WorkSpace Chileparcels\\REST-Service\\rs_rendicion\\rs_rendicion.csproj",
-      "projectName": "rs_rendicion",
-      "projectPath": "C:\\WorkSpace Chileparcels\\REST-Service\\rs_rendicion\\rs_rendicion.csproj",
+      "projectUniqueName": "C:\\Users\\fabsa\\Desktop\\API_DronesV1\\rs_drones.csproj",
+      "projectName": "rs_drones",
+      "projectPath": "C:\\Users\\fabsa\\Desktop\\API_DronesV1\\rs_drones.csproj",
       "packagesPath": "C:\\Users\\fabsa\\.nuget\\packages\\",
-      "outputPath": "C:\\WorkSpace Chileparcels\\REST-Service\\rs_rendicion\\obj\\",
+      "outputPath": "C:\\Users\\fabsa\\Desktop\\API_DronesV1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

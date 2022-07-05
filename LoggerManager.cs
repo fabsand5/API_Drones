@@ -8,7 +8,7 @@ using System.Reflection;
 using System.Threading.Tasks;
 using System.Xml;
 
-namespace rs_rendicion
+namespace rs_drones
 {
     public class LoggerManager : ILoggerManager
     {

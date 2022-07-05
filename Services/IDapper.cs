@@ -6,7 +6,7 @@ using System.Data.Common;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace ws_rendicion.Services
+namespace ws_drones.Services
 {
     public interface IDapper : IDisposable
     {

@@ -5,9 +5,8 @@ using System.Threading.Tasks;
 
 namespace rs_drones.Models
 {
-    public class HeaderTO
+    public class RequestRegistrarDronTO
     {
-        public long idUsuario { get; set; }
-        public String token { get; set; }
+        public DronTO dron { get; set; }
     }
 }

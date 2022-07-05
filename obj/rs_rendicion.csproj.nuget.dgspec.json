@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\WorkSpace Chileparcels\\REST-Service\\rs_rendicion\\rs_rendicion.csproj": {}
+    "C:\\Users\\fabsa\\Desktop\\rs_rendicion\\rs_rendicion.csproj": {}
   },
   "projects": {
-    "C:\\WorkSpace Chileparcels\\REST-Service\\rs_rendicion\\rs_rendicion.csproj": {
+    "C:\\Users\\fabsa\\Desktop\\rs_rendicion\\rs_rendicion.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\WorkSpace Chileparcels\\REST-Service\\rs_rendicion\\rs_rendicion.csproj",
+        "projectUniqueName": "C:\\Users\\fabsa\\Desktop\\rs_rendicion\\rs_rendicion.csproj",
         "projectName": "rs_rendicion",
-        "projectPath": "C:\\WorkSpace Chileparcels\\REST-Service\\rs_rendicion\\rs_rendicion.csproj",
+        "projectPath": "C:\\Users\\fabsa\\Desktop\\rs_rendicion\\rs_rendicion.csproj",
         "packagesPath": "C:\\Users\\fabsa\\.nuget\\packages\\",
-        "outputPath": "C:\\WorkSpace Chileparcels\\REST-Service\\rs_rendicion\\obj\\",
+        "outputPath": "C:\\Users\\fabsa\\Desktop\\rs_rendicion\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",

@@ -5,9 +5,10 @@ using System.Threading.Tasks;
 
 namespace rs_drones.Models
 {
-    public class HeaderTO
+    public class RequestCargarDronTO
     {
-        public long idUsuario { get; set; }
-        public String token { get; set; }
+        public String codMedicamento { get; set; }
+
+        public String numSerieDron { get; set; }
     }
 }

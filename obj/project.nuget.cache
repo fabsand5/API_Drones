@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "oQBW5DLfGWG0waZzdVpGGZFfeqFXLCksfu//nhP/oAqjuSI5cu4UB+0PfS+fpKWFexafU3SzArLNI/Yeij1p9A==",
+  "dgSpecHash": "4BLhqepv3HARc9D/Th/p5P6c2S8I7LE56ds3CABCMQqUVd0UifSnVSsERSmecIj5oVp6DSPbp8f4EsJnzxv6Lw==",
   "success": true,
-  "projectFilePath": "C:\\WorkSpace Chileparcels\\REST-Service\\rs_rendicion\\rs_rendicion.csproj",
+  "projectFilePath": "C:\\Users\\fabsa\\Desktop\\API_DronesV1\\rs_drones.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\fabsa\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
     "C:\\Users\\fabsa\\.nuget\\packages\\log4net\\2.0.13\\log4net.2.0.13.nupkg.sha512",

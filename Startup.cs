@@ -10,14 +10,14 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using ws_rendicion.Services;
+using ws_drones.Services;
 using System.IO;
 using log4net.Repository.Hierarchy;
-using rs_rendicion;
+using rs_drones;
 using Microsoft.OpenApi.Models;
-using rs_rendicion.Services;
+using rs_drones.Services;
 
-namespace ws_rendicion
+namespace ws_drones
 {
     public class Startup
     {
@@ -83,7 +83,7 @@ namespace ws_rendicion
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1.0/swagger.json", "API REST RENDICION");
+                c.SwaggerEndpoint("/swagger/v1.0/swagger.json", "API REST drones");
             });
         }
 
@@ -96,14 +96,12 @@ namespace ws_rendicion
 
                 options.SwaggerDoc(groupName, new OpenApiInfo
                 {
-                    Title = $"API RENDICION {groupName}",
+                    Title = $"API drones {groupName}",
                     Version = groupName,
-                    Description = "API RENDICION",
+                    Description = "API drones",
                     Contact = new OpenApiContact
                     {
-                        Name = "Chileparcels",
-                        Email = string.Empty,
-                        Url = new Uri("http://clientes.chileparcels.cl/"),
+
                     }
                 });
             });
